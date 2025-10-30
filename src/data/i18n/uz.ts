@@ -47,7 +47,7 @@ export const uz = {
     {
       id: 2,
       image: "/case_2.jpg",
-      youtubeUrl: "https://www.youtube.com/embed/IRdy8uVPvtM",
+      youtubeUrl: "https://www.youtube.com/embed/7MCIaX1nUiU",
       title:
         "Nur Hayat — hashamat va qulaylik uyg‘unlashgan yangi hayot manzili",
       title2: "Kompaniya haqida",
@@ -79,7 +79,7 @@ export const uz = {
     {
       id: 3,
       image: "/case_3.jpg",
-      youtubeUrl: "https://www.youtube.com/embed/IRdy8uVPvtM",
+      youtubeUrl: "https://www.youtube.com/embed/hv1oKVGrjr4",
       title:
         "Barxan — tabiiy kuch va osoyishtalik uyg‘unlashgan zamonaviy hayot maskani",
       title2: "Loyiha haqida",

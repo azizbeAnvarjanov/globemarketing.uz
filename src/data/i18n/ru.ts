@@ -49,7 +49,7 @@ export const ru = {
     {
       id: 2,
       image: "/case_2.jpg",
-      youtubeUrl: "https://www.youtube.com/embed/IRdy8uVPvtM",
+      youtubeUrl: "https://www.youtube.com/embed/7MCIaX1nUiU",
       title:
         "Nur Hayat — новое пространство жизни, где сочетаются роскошь и комфорт",
       title2: "О компании",
@@ -77,13 +77,13 @@ export const ru = {
         "Успешно продвинули бренд в социальных сетях Благодаря аналитически выверенным цифровым кампаниям «Nur Hayat» завоевал доверие и внимание целевой аудитории, став одним из лидеров в своём сегменте рынка.",
       natijalarf:
         "Nur Hayat — место, где рождается ваш новый стиль жизни Ощутите гармонию уюта и элегантности. Nur Hayat — это дом, где начинается ваша счастливая история.",
-        natijalarf2: "",
-        natijalarf3: "",
+      natijalarf2: "",
+      natijalarf3: "",
     },
     {
       id: 3,
       image: "/case_3.jpg",
-      youtubeUrl: "https://www.youtube.com/embed/IRdy8uVPvtM",
+      youtubeUrl: "https://www.youtube.com/embed/hv1oKVGrjr4",
       title:
         "Barxan — tabiiy kuch va osoyishtalik uyg‘unlashgan zamonaviy hayot maskani",
       title2: "Loyiha haqida",
