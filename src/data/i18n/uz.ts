@@ -211,6 +211,7 @@ export const uz = {
   cases: {
     sectionLabel: "Loyihalar",
     title: "Bizning hamkor loyihalarimiz",
+    allCases: "Barcha loyihalar",
     subtitle:
       "Biz xizmat ko'rsatgan qurilish kompaniyalari savdo va marketingda aniq natijalarni qo'lga kiritishgan",
     caseTitle:
