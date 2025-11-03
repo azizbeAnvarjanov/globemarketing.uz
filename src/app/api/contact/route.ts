@@ -2,6 +2,25 @@ import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
+  // Handle CORS preflight
+  if (req.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    });
+  }
+
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return new NextResponse(
+      JSON.stringify({ success: false, error: 'Method not allowed' }),
+      { status: 405, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
   try {
     const body = await req.json();
 
@@ -41,14 +60,29 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({ success: true });
+    return new NextResponse(
+      JSON.stringify({ success: true }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
   } catch (error: unknown) {
     console.error("Sheets API Error:", error);
     const errorMessage =
       error instanceof Error ? error.message : "An unknown error occurred";
-    return NextResponse.json(
-      { success: false, error: errorMessage },
-      { status: 500 }
+    return new NextResponse(
+      JSON.stringify({ success: false, error: errorMessage }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
     );
   }
 }
