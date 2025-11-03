@@ -37,7 +37,7 @@ export default function TeamSection() {
       id: 4,
       name: t.team.members[3].name,
       position: t.team.members[3].position,
-      image: "/Slide_4.png"
+      image: "/Slide_4.jpg"
     },
     {
       id: 5,
