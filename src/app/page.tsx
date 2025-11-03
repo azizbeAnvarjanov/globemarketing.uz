@@ -1,6 +1,5 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import VideoSection from '@/components/VideoSection';
 import ServicesSection from '@/components/ServicesSection';
 import CasesSection from '@/components/CasesSection';
 import TeamSection from '@/components/TeamSection';
@@ -13,7 +12,6 @@ export default function Home() {
     <div className="min-h-screen">
       <Header />
       <HeroSection />
-      {/* <VideoSection /> */}
       <div id="services">
         <ServicesSection />
       </div>

@@ -90,41 +90,41 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const handleServiceClick = () => setIsServiceOpen(!isServiceOpen);
   const handleHowClick = () => setIsHowOpen(!isHowOpen);
 
-  // const onSubmit = async (data: FormData) => {
-  //   try {
-  //     const cleanedPhone = data.phone.replace(/\D/g, ""); // faqat raqamlar
-  //     const formattedData = { ...data, phone: cleanedPhone };
+  const onSubmit = async (data: FormData) => {
+    try {
+      const cleanedPhone = data.phone.replace(/\D/g, ""); // faqat raqamlar
+      const formattedData = { ...data, phone: cleanedPhone };
 
-  //     const res = await fetch("/api/contact", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(formattedData),
-  //     });
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formattedData),
+      });
 
-  //     const result = await res.json();
+      const result = await res.json();
 
-  //     if (result.success) {
-  //       toast.success(
-  //         "Arizangiz yuborildi! Siz bilan tez orada aloqaga chiqamiz ✅"
-  //       );
-  //       reset();
-  //       onClose();
-  //     } else {
-  //       toast.error("Xatolik yuz berdi, qayta urinib ko‘ring ❌");
-  //       console.error("Xatolik:", result.error);
-  //     }
-  //   } catch (err) {
-  //     toast.error("Server bilan bog‘lanishda xatolik yuz berdi ❌");
-  //     console.error("Server bilan bog‘lanishda xatolik:", err);
-  //   }
-  // };
-
-  const onSubmit = (data: FormData) => {
-    console.log("Отправка заявки:", data);
-    // После успешной отправки закрываем модал и сбрасываем форму
-    reset();
-    onClose();
+      if (result.success) {
+        toast.success(
+          "Arizangiz yuborildi! Siz bilan tez orada aloqaga chiqamiz ✅"
+        );
+        reset();
+        onClose();
+      } else {
+        toast.error("Xatolik yuz berdi, qayta urinib ko‘ring ❌");
+        console.error("Xatolik:", result.error);
+      }
+    } catch (err) {
+      toast.error("Server bilan bog‘lanishda xatolik yuz berdi ❌");
+      console.error("Server bilan bog‘lanishda xatolik:", err);
+    }
   };
+
+  // const onSubmit = (data: FormData) => {
+  //   console.log("Отправка заявки:", data);
+  //   // После успешной отправки закрываем модал и сбрасываем форму
+  //   reset();
+  //   onClose();
+  // };
 
   const handleClose = () => {
     reset();
