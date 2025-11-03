@@ -13,7 +13,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Header />
       <HeroSection />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <div id="services">
         <ServicesSection />
       </div>

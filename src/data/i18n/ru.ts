@@ -373,7 +373,7 @@ export const ru = {
       phoneLabel: "Телефон *",
       phonePlaceholder: "+998 XX XXX XX XX *",
       emailLabel: "Email",
-      emailPlaceholder: "Email",
+      emailPlaceholder: "Username",
       positionLabel: "Должность",
       positionPlaceholder: "Ваша должность",
       serviceLabel: "Услуга",

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import "./globals.css";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { Toaster } from "react-hot-toast";
 //import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({
@@ -25,11 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         <LanguageProvider>
           {children}
+          <Toaster position="top-center" reverseOrder={false} />
           <ScrollToTopButton />
           {/* <ChatWidget /> */}
         </LanguageProvider>

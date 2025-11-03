@@ -53,7 +53,7 @@ export default function CasesSection() {
           {casesToShow.map((caseItem, index) => (
             <div
               key={caseItem.id}
-              className={`relative rounded-3xl overflow-hidden group cursor-pointer transform transition-all duration-500 w-[600px] h-[300px] mb-3 ${
+              className={`relative rounded-3xl overflow-hidden group cursor-pointer transform transition-all duration-500 md:h-[400px] w-[600px] h-[250px] mb-3 ${
                 index >= 4 && showAllCases ? "animate-fade-in" : ""
               }`}
               style={{

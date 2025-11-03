@@ -370,7 +370,7 @@ export const uz = {
       phoneLabel: "Telefon *",
       phonePlaceholder: "+998 XX XXX XX XX *",
       emailLabel: "Email",
-      emailPlaceholder: "Email",
+      emailPlaceholder: "Username",
       positionLabel: "Lavozim",
       positionPlaceholder: "Sizning lavozimingiz",
       serviceLabel: "Xizmat",
