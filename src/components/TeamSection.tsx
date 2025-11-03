@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { gsap } from 'gsap';
-import { useTranslations } from '@/contexts/LanguageContext';
-import Image from 'next/image';
+import { useState, useEffect, useRef, useCallback } from "react";
+import { gsap } from "gsap";
+import { useTranslations } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 export default function TeamSection() {
   const [currentSlide, setCurrentSlide] = useState(0); // Начинаем с 0 для 3 элементов
@@ -19,56 +19,58 @@ export default function TeamSection() {
       id: 1,
       name: t.team.members[0].name,
       position: t.team.members[0].position,
-      image: "/Slide_1.png"
+      image: "/Slide_1.png",
     },
     {
       id: 2,
       name: t.team.members[1].name,
       position: t.team.members[1].position,
-      image: "/Slide_2.png"
+      image: "/Slide_2.png",
     },
     {
       id: 3,
       name: t.team.members[2].name,
       position: t.team.members[2].position,
-      image: "/Slide_3.png"
+      image: "/Slide_3.png",
     },
     {
       id: 4,
       name: t.team.members[3].name,
       position: t.team.members[3].position,
-      image: "/Slide_4.jpg"
+      image: "/Slide_4.jpg",
     },
     {
       id: 5,
       name: t.team.members[4].name,
       position: t.team.members[4].position,
-      image: "/Slide_5.png"
+      image: "/nom.jpg",
     },
     {
       id: 6,
       name: t.team.members[5].name,
       position: t.team.members[5].position,
-      image: "/Slide_6.png"
+      image: "/laziz.jpg",
     },
     {
       id: 7,
       name: t.team.members[6].name,
       position: t.team.members[6].position,
-      image: "/Slide_7.png"
+      image: "/shah.jpg",
     },
     {
       id: 8,
       name: t.team.members[7].name,
       position: t.team.members[7].position,
-      image: "/Slide_8.png"
+      image: "/Slide_8.png",
     },
   ];
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => {
       const next = (prev + 1) % teamMembers.length;
-      console.log(`Next slide: ${prev} -> ${next}, total: ${teamMembers.length}`);
+      console.log(
+        `Next slide: ${prev} -> ${next}, total: ${teamMembers.length}`
+      );
       return next;
     });
   }, [teamMembers.length]);
@@ -80,14 +82,15 @@ export default function TeamSection() {
       if (!slide) return;
 
       const isCenter = index === currentSlide;
-      const isPrev = index === (currentSlide - 1 + teamMembers.length) % teamMembers.length;
+      const isPrev =
+        index === (currentSlide - 1 + teamMembers.length) % teamMembers.length;
       const isNext = index === (currentSlide + 1) % teamMembers.length;
-      
+
       // Для 3 элементов всегда показываем все карточки
       const scale = isCenter ? 1 : 0.8;
       const opacity = isCenter ? 1 : 0.7;
       let xPosition = 0;
-      
+
       if (isCenter) {
         xPosition = 0;
       } else if (isPrev) {
@@ -102,7 +105,7 @@ export default function TeamSection() {
         x: xPosition,
         zIndex: isCenter ? 20 : 10,
         duration: 0.6,
-        ease: 'power2.out'
+        ease: "power2.out",
       });
     });
   }, [currentSlide, teamMembers.length]);
@@ -126,7 +129,9 @@ export default function TeamSection() {
   const prevSlide = () => {
     setCurrentSlide((prev) => {
       const previous = (prev - 1 + teamMembers.length) % teamMembers.length;
-      console.log(`Prev slide: ${prev} -> ${previous}, total: ${teamMembers.length}`);
+      console.log(
+        `Prev slide: ${prev} -> ${previous}, total: ${teamMembers.length}`
+      );
       return previous;
     });
   };
@@ -141,7 +146,7 @@ export default function TeamSection() {
     const currentX = e.clientX;
     const diff = currentX - startX;
     setDragOffset(diff);
-    
+
     // Анимация при перетаскивании
     if (containerRef.current) {
       gsap.set(containerRef.current, { x: diff * 0.1 });
@@ -151,7 +156,7 @@ export default function TeamSection() {
   const handleMouseUp = () => {
     if (!isDragging) return;
     setIsDragging(false);
-    
+
     if (Math.abs(dragOffset) > 100) {
       if (dragOffset > 0) {
         prevSlide();
@@ -159,12 +164,12 @@ export default function TeamSection() {
         nextSlide();
       }
     }
-    
+
     // Возвращаем контейнер на место
     if (containerRef.current) {
       gsap.to(containerRef.current, { x: 0, duration: 0.3 });
     }
-    
+
     setDragOffset(0);
   };
 
@@ -178,7 +183,7 @@ export default function TeamSection() {
     const currentX = e.touches[0].clientX;
     const diff = currentX - startX;
     setDragOffset(diff);
-    
+
     if (containerRef.current) {
       gsap.set(containerRef.current, { x: diff * 0.1 });
     }
@@ -187,7 +192,7 @@ export default function TeamSection() {
   const handleTouchEnd = () => {
     if (!isDragging) return;
     setIsDragging(false);
-    
+
     if (Math.abs(dragOffset) > 100) {
       if (dragOffset > 0) {
         prevSlide();
@@ -195,11 +200,11 @@ export default function TeamSection() {
         nextSlide();
       }
     }
-    
+
     if (containerRef.current) {
       gsap.to(containerRef.current, { x: 0, duration: 0.3 });
     }
-    
+
     setDragOffset(0);
   };
 
@@ -208,7 +213,9 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-white-400 text-sm mb-4 tracking-wide">{t.team.sectionLabel}</p>
+          <p className="text-white-400 text-sm mb-4 tracking-wide">
+            {t.team.sectionLabel}
+          </p>
           <h2 className="text-white text-3xl lg:text-5xl font-light leading-tight mb-6">
             {t.team.title}
           </h2>
@@ -219,10 +226,10 @@ export default function TeamSection() {
 
         {/* Team Slider */}
         <div className="relative overflow-hidden">
-          <div 
+          <div
             ref={containerRef}
             className="flex items-center justify-center cursor-grab select-none relative"
-            style={{ height: '500px' }}
+            style={{ height: "500px" }}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -233,25 +240,27 @@ export default function TeamSection() {
           >
             {teamMembers.map((member, index) => {
               const isCenter = index === currentSlide;
-              
+
               return (
                 <div
                   key={member.id}
-                  ref={(el) => { slidesRef.current[index] = el; }}
+                  ref={(el) => {
+                    slidesRef.current[index] = el;
+                  }}
                   className="absolute flex-shrink-0"
                   style={{
-                    left: '50%',
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)'
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
                   }}
                 >
                   <div
                     className={`relative rounded-3xl overflow-hidden ${
-                      isCenter ? '' : 'w-72 h-72'
+                      isCenter ? "" : "w-72 h-72"
                     }`}
-                    style={isCenter ? { width: '350px', height: '420px' } : {}}
+                    style={isCenter ? { width: "350px", height: "420px" } : {}}
                   >
-                    <Image 
+                    <Image
                       src={member.image}
                       alt={member.name}
                       layout="fill"
@@ -260,16 +269,26 @@ export default function TeamSection() {
                       draggable={false}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    
-                    <div className={`absolute ${isCenter ? 'bottom-6 left-6 right-6' : 'bottom-4 left-4 right-4'}`}>
-                      <h3 className={`text-white font-bold mb-1 ${
-                        isCenter ? 'text-2xl lg:text-3xl mb-2' : 'text-lg'
-                      }`}>
+
+                    <div
+                      className={`absolute ${
+                        isCenter
+                          ? "bottom-6 left-6 right-6"
+                          : "bottom-4 left-4 right-4"
+                      }`}
+                    >
+                      <h3
+                        className={`text-white font-bold mb-1 ${
+                          isCenter ? "text-2xl lg:text-3xl mb-2" : "text-lg"
+                        }`}
+                      >
                         {member.name}
                       </h3>
-                      <p className={`text-gray-300 ${
-                        isCenter ? 'text-base lg:text-lg' : 'text-sm'
-                      }`}>
+                      <p
+                        className={`text-gray-300 ${
+                          isCenter ? "text-base lg:text-lg" : "text-sm"
+                        }`}
+                      >
                         {member.position}
                       </p>
                     </div>
