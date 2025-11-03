@@ -19,43 +19,43 @@ export default function TeamSection() {
       id: 1,
       name: t.team.members[0].name,
       position: t.team.members[0].position,
-      image: "/Slide_1.jpg"
+      image: "/Slide_1.png"
     },
     {
       id: 2,
       name: t.team.members[1].name,
       position: t.team.members[1].position,
-      image: "/Slide_2.jpg"
+      image: "/Slide_2.png"
     },
     {
       id: 3,
       name: t.team.members[2].name,
       position: t.team.members[2].position,
-      image: "/Slide_3.jpg"
+      image: "/Slide_3.png"
     },
     {
       id: 4,
       name: t.team.members[3].name,
       position: t.team.members[3].position,
-      image: "/Slide_4.JPG"
+      image: "/Slide_4.png"
     },
     {
       id: 5,
       name: t.team.members[4].name,
       position: t.team.members[4].position,
-      image: "/Slide_5.PNG"
+      image: "/Slide_5.png"
     },
     {
       id: 6,
       name: t.team.members[5].name,
       position: t.team.members[5].position,
-      image: "/Slide_6.PNG"
+      image: "/Slide_6.png"
     },
     {
       id: 7,
       name: t.team.members[6].name,
       position: t.team.members[6].position,
-      image: "/Slide_7.PNG"
+      image: "/Slide_7.png"
     },
     {
       id: 8,
